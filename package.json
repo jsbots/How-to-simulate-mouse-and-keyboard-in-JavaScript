@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "keysender": "^1.6.5",
+    "node-gyp": "^9.1.0"
+  }
+}
