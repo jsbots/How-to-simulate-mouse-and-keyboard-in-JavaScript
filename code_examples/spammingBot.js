@@ -7,34 +7,20 @@ const { keyboard, mouse, workwindow } = new Hardware(win.handle)
 workwindow.setForeground();
 sleep(250);
 
-const text = [
-  `I like to dance!`,
-  `Look at my moves!!!`,
-  `Im sooooo good!`,
-  `DANCE DANCE DANCE!!!!`,
-  `YEEEAEAAAAA`,
-  `WE CAN DANCE WE CAN DANCE`
-];
-const action = [
-  `/dance`,
-  `/cry`,
-  `/cheer`,
-  `/laugh`,
-  `/train`
-];
+const sayTimeFrom = 30000;
+const sayTimeTo = 35000;
 
-const say = (text) => {
-  keyboard.sendKey(enter);
-  keyboard.printText(`/y ${text}`);
-  keyboard.sendKey(enter);
-};
+setTimeout(function say(){
+  keyboard.sendKey(`enter`);
+  keyboard.printText(`your text`);
+  keyboard.sendKey(`enter`);
+  setTimeout(say, sayTimeFrom + Math.random() * (sayTimeTo - sayTimeFrom));
+}, sayTimeFrom + Math.random() * (sayTimeTo - sayTimeFrom));
 
-while(true) {
-  if(Math.random() * 10 < 5) {
-    say(text[Math.floor(Math.random() * (text.length - 1))])
-  } else {
-    say(action[Math.floor(Math.random() * (action.length - 1))])
-  }
+const jumpTimeFrom = 49000;
+const jumpTimeTo = 55000;
 
-  sleep(2000);
-}
+setTimeout(function say(){
+  keyboard.sendKey(`space`);
+  setTimeout(say, jumpTimeFrom + Math.random() * (jumpTimeTo - jumpTimeFrom));
+}, jumpTimeFrom + Math.random() * (jumpTimeTo - jumpTimeFrom));
